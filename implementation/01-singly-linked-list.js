@@ -63,25 +63,47 @@ class SinglyLinkedList {
   }
 
   removeFromTail() {
-    // Remove node at tail
-    if (!this.head < 1) {
-        return undefined
+      if(this.length === 1){
+          const currHead = this.head;
+          this.head = null;
+          this.length --;
+          return currHead;
+        } else if (this.length === 0){
+            return;
+        }
+    let currNode = this.head;
+    let otherNode = null;
+    while(currNode.next){
+        otherNode = currNode;
+        currNode = currNode.next;
     }
-    // Write your hypothesis on the time complexity of this method here
+    otherNode.next = null;
+    this.length--;
+    return currNode;
   }
 
   peekAtHead() {
-    // Return the value of head node
-    // Your code here
-    // Write your hypothesis on the time complexity of this method here
+   let currNode = this.head;
+   if(this.head){
+    return currNode;
+   } else {
+    return undefined;
+   }
   }
 
   print() {
-    // Print out the linked list
-    // Your code here
-    // Write your hypothesis on the time complexity of this method here
+    let currNode = this.head;
+    if(this.length === 0){
+        return;
+    } else {
+        while(currNode){
+            console.log(currNode.value)
+            currNode = currNode.next
+        }
+    }
   }
 }
+
 
 module.exports = {
   SinglyLinkedList,
