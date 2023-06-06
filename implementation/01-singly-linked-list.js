@@ -85,7 +85,7 @@ class SinglyLinkedList {
   peekAtHead() {
    let currNode = this.head;
    if(this.head){
-    return currNode;
+    return currNode.value;
    } else {
     return undefined;
    }
